@@ -1,0 +1,86 @@
+
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+<br/>
+<br/>
+<h2>Recommended for today</h2>
+<h6>Inspired by your recent activity.</h6>
+<br/>
+<div class="container">
+  <hr>
+    <div class="row">
+    {% for dataRes in dataRes_uno %}
+      <div class="card" style="max-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{dataRes}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Recommended for today</h6>
+          <p class="card-text">
+              <img src="{% static "images/download.jpg" %}" class="card-img" alt="Uh Oh, didn't show!">
+          </p>
+          <div class="container">
+            <a style="color:black;" href="{% url 'scoreone' user dataRes %}" class="card-link">C 1 </a>
+            <a style="color:black;" href="{% url 'scoretwo' user dataRes %}" class="card-link">C 2 </a>
+            <a style="color:black;" href="{% url 'scorethree' user dataRes %}" class="card-link">C 3 </a>
+            <a style="color:black;" href="{% url 'scorefour' user dataRes %}" class="card-link">C 4 </a>
+            <a style="color:black;" href="{% url 'scorefive' user dataRes %}" class="card-link">C 5 </a>
+          </div>
+        </div>
+      </div>
+      <hr>
+    {% endfor %}
+    </div>
+
+    <hr>
+
+  <div class="row">
+      {% for dataRes in dataRes_dos %}
+      <div class="card" style="max-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{dataRes}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Recommended for today</h6>
+          <p class="card-text">
+              <img src="{% static "images/download.jpg" %}" class="card-img" alt="Uh Oh, didn't show!">
+          </p>
+          <div class="container">
+            <a style="color:black;" href="{% url 'scoreone' user dataRes %}" class="card-link">C 1 </a>
+            <a style="color:black;" href="{% url 'scoretwo' user dataRes %}" class="card-link">C 2 </a>
+            <a style="color:black;" href="{% url 'scorethree' user dataRes %}" class="card-link">C 3 </a>
+            <a style="color:black;" href="{% url 'scorefour' user dataRes %}" class="card-link">C 4 </a>
+            <a style="color:black;" href="{% url 'scorefive' user dataRes %}" class="card-link">C 5 </a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      {% endfor %}
+  </div>
+
+  <hr>
+
+  <div class="row">
+      {% for dataRes in dataRes_tres %}
+      <div class="card" style="max-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{dataRes}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Recommended for today</h6>
+          <p class="card-text">
+              <img src="{% static "images/download.jpg" %}" class="card-img" alt="Uh Oh, didn't show!">
+          </p>
+          <div class="container">
+            <a style="color:black;" href="{% url 'scoreone' user dataRes %}" class="card-link">C 1 </a>
+            <a style="color:black;" href="{% url 'scoretwo' user dataRes %}" class="card-link">C 2 </a>
+            <a style="color:black;" href="{% url 'scorethree' user dataRes %}" class="card-link">C 3 </a>
+            <a style="color:black;" href="{% url 'scorefour' user dataRes %}" class="card-link">C 4 </a>
+            <a style="color:black;" href="{% url 'scorefive' user dataRes %}" class="card-link">C 5 </a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      {% endfor %}
+  </div>
+
+  <hr>
+</div>
+
+{% endblock %}

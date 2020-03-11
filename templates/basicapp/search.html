@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+<style type="text/css">
+  .input-group.md-form.form-sm.form-1 input{
+    border: 1px solid #bdbdbd;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+  .input-group.md-form.form-sm.form-2 input {
+    border: 1px solid #bdbdbd;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+  .input-group.md-form.form-sm.form-2 input.red-border {
+    border: 1px solid #ef9a9a;
+  }
+  .input-group.md-form.form-sm.form-2 input.lime-border {
+    border: 1px solid #cddc39;
+  }
+  .input-group.md-form.form-sm.form-2 input.amber-border {
+    border: 1px solid #ffca28;
+  }
+</style>
+
+<br/>
+<br/>
+<h2>Search for Artists</h2>
+<br/>
+<br/>
+<div class="container">
+    <hr>
+    <form method="post" action="{% url 'songSerch' user  %}"  enctype="multipart/form-data" class="form-inline md-form mr-auto mb-4">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit" id="text">Search</button>
+    </form>
+    <hr>
+    <br/>
+    <br/>
+    <h2>Top result</h2>
+    <br/>
+    <br/>
+    {% for dataRes in dataRes_ %}
+        <div class="card mb-3" style="max-width: 800px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{% static "images/download.jpg" %}" class="card-img" alt="Uh Oh, didn't show!">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{dataRes}}</h5>
+                <br/>
+                <br/>
+                <div class="container">
+                  <a style="color:black;" href="{% url 'scoreone' user dataRes %}" class="card-link">C 1 </a>
+                  <a style="color:black;" href="{% url 'scoretwo' user dataRes%}" class="card-link">C 2 </a>
+                  <a style="color:black;" href="{% url 'scorethree' user dataRes%}" class="card-link">C 3 </a>
+                  <a style="color:black;" href="{% url 'scorefour' user dataRes%}" class="card-link">C 4 </a>
+                  <a style="color:black;" href="{% url 'scorefive' user dataRes%}" class="card-link">C 5 </a>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>
+       <br/>
+    {% endfor %}
+</div>
+{% endblock %}
